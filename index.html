@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title id="title"></title>
+    <meta name="keywords" content="网页导航">
+    <meta name="description" content="单纯就是一个导航">
+    <link rel="stylesheet icon" href="img/icon.ico" />
+    <link rel="stylesheet" type="text/css" href="bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <script type="text/javascript" src="js/jQuery.js"></script>
+    <script type="text/javascript" src="bootstrap/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/slideout.css">
+    <script>
+        var now = new Date().getTime();
+        document.write('<link href="css/style.css?v=' + now + '" rel="stylesheet" type="text/css"/>');
+    </script>
+</head>
+
+<body>
+    <nav id="menu" class="menu">
+        
+        <blockquote class="blockquote">▎ 关于梦灵姬</blockquote>
+        <ul>
+            <a target="_blank" href="https://menglingji.com/">
+                <li class="sidenav-btn">梦灵姬官网
+                    <p>最新资讯，感想交流</p>
+                </li>
+            </a>
+            <a target="_blank" href="https://dl.menglingji.com">
+                <li class="sidenav-btn">梦灵姬资源站
+                    <p>动漫番剧，Galgame，漫画</p>
+                </li>
+            </a>
+            <a target="_blank" href="https://yyddtj.top">
+                <li class="sidenav-btn">梦灵姬网盘
+                    <p>大空间不限速</p>
+                </li>
+            </a>
+            <a target="_blank" href="https://menglingji.top/">
+                <li class="sidenav-btn">梦灵姬发布页
+                    <p>随时找到回家的路</p>
+                   </li>
+            </a>
+        </ul>
+   
+        <blockquote class="blockquote">▎ 社交媒体</blockquote>
+        <ul>
+            <a target="_blank" href="https://qun.qq.com/qqweb/qunpro/share?_wv=3&_wwv=128&appChannel=share&inviteCode=1Radjx&businessType=9&from=181074&biz=ka&mainSourceId=share&subSourceId=others&jumpsource=shorturl#/pc">
+                <li class="sidenav-btn">QQ频道
+                    <p>ACGN社区</p>
+                </li>
+            </a>
+            <a target="_blank" href="https://t.me/+7Xcq4beoi7oxOWE9">
+                <li class="sidenav-btn">TG群
+                    <p>纸飞机交流群</p>
+                </li>
+            </a>
+            <a target="_blank" href="https://space.bilibili.com/1555457544/">
+                <li class="sidenav-btn">BiliBili
+                    <p>ACGN视频</p>
+               
+                </li>
+            </a>
+        </ul>
+        <blockquote class="blockquote">▎ 网站推荐</blockquote>
+        <ul>
+            <a target="_blank" href="https://wegal.top">
+                <li class="sidenav-btn">ACG次元联盟
+                    <p>国内知名ACG网站联盟</p>
+                </li>
+            </a>
+            <a target="_blank" href="https://acgfan.cf/">
+                <li class="sidenav-btn">Acgfan资料站
+                    <p>致力于收集二次元领域资料</p>
+                </li>
+            </a>
+            <a target="_blank" href="https://galgame.gq/">
+                <li class="sidenav-btn">忧郁的弟弟
+                    <p>弟弟君的网站备份</p>
+           
+      
+                </li>
+            </a>
+     
+  <a target="_blank" href="https://pan.galloner.ml/">
+                <li class="sidenav-btn">Galloner的小站
+                    <p>ACGN下载网站</p>
+                 </li>
+            </a>
+        </ul>
+        <blockquote class="blockquote">▎ 设置</blockquote>
+        <ul>
+            <a href="https://app.menglingji.com/">
+                <li class="sidenav-btn" id="night">版本更新</li>
+            </a>
+            <a href="#">
+                <li class="sidenav-btn" id="bg">干掉/显示壁纸</li>
+            </a>
+        </ul>
+        <p style="width:100%;text-align:center;margin:0 auto;font-size:14px;color:lightgray;">2020-2022 © 梦灵姬</p>
+    </nav>
+
+    <!-- 主页面 -->
+    <main id="main" class="panel">
+        <!-- 天气 -->
+        <div id="tp-weather-widget"></div>
+        <!-- 主容器 -->
+        <div class="container">
+
+            <!-- 侧边栏按钮 -->
+            <img class="slidebtn btn-hamburger js-slideout-toggle" src="img/menu.svg" />
+            <!-- 搜索盒子 -->
+            <div class="search-box">
+                <!-- logo -->
+                <div id="logo">
+                    <div id="state">
+                        <a href="folder://"><img id="img" src="img/mlj.png" /></a>
+                    </div>
+                </div>
+
+                <!-- 搜索框 -->
+                <div class="inputDiv">
+                    <form id="form" action="https://cn.bing.com/search" target="_self" onsubmit="return check()">
+                        <input onmouseover="this.focus()" onfocus="this.select()" id="inputText" type="text" placeholder="搜点什么？..." name="q" size="30" />
+                        <button id="submitButton" class="submitButton" type="submit"></button>
+                    </form>
+                    <!-- 搜索提示词 -->
+                    <div id="searchlist">
+                        <ul id="list"></ul>
+                    </div>
+                </div>
+
+                <!-- 书签、引擎选择器 -->
+                <div id="Select" class="Select" onclick="select()">
+                    <hr>梦灵姬（点击切换导航）
+                    <img src="img/search-change.svg?v=2ae7ab8" />
+                </div>
+                <!-- 书签 -->
+                <div id="folder" class="folder">
+                    <ul></ul>
+                </div>
+
+                <!-- 导航引擎 -->
+                <div id="nav" class="nav">
+                    <ul></ul>
+                </div>
+
+                <!-- 更新提示框 -->
+                <div id="alert" class="alert alert-info alert-dismissible" role="alert">
+                    <button type="button" id="closealert" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                   <div class="row">
+                <div class="col-sm-4">
+                     <a href="https://app.menglingji.com/"<a class="top_nav" ><span style="color:#00ccff;">当前版本：3.1.01  最新版本： <script type="text/javascript" src="http://api.menglingji.top/hitokoto/?syz=js&charset=utf-8"></script><script>hitokoto()</script></a>
+                </div>
+                </div>
+
+            </div>
+    </main>
+
+    <script type="text/javascript" src="js/slideout.min.js"></script>
+    <script type="text/javascript">
+        var slideout = new Slideout({
+            'panel': document.getElementById('main'),
+            'menu': document.getElementById('menu'),
+            'padding': 290,
+            'tolerance': 70
+        });
+        document.querySelector('.js-slideout-toggle').addEventListener('click',
+            function() {
+                slideout.toggle();
+            });
+        document.querySelector('.menu').addEventListener('click',
+            function(eve) {
+                if (eve.target.nodeName === 'A') {
+                    slideout.close();
+                }
+            });
+        $(document).click(function(e) {
+            var Class = $(e.target).attr("class");
+            var Id = $(e.target).attr("id");
+            if (Class == 'panel slideout-panel slideout-panel-left' || Class == 'folder-item col-xs-3 col-sm-2' || Class == 'search-box' || Id == 'inputText' || Id == 'logo') {
+                slideout.close();
+            }
+        });
+    </script>
+
+</body>
+<script type="text/javascript">
+    document.write('<script src="js/main.js?v=' + now + '"><\/script\>');
+</script>
+
+</html>
